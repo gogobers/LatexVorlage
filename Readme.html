@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<title>Readme.html</title>
+
+</head>
+
+<body>
+
+<p><meta http-equiv="Content-Type" content="text/html; charset=utf-8"></p>
+
+<h2>LaTeX-Vorlage für Studien- und Bachelorarbeiten an der DHBW</h2>
+
+<p>Dieses ist eine inoffizielle Version und beinhaltet</p>
+
+<ul>
+<li>Einfaches Main-File mit Einbingung einiger Pakete</li>
+<li>Erstellung von Verzeichnissen:</li>
+<li>Literaturverzeichnis</li>
+<li>Abkürzungsverzeichnis</li>
+<li>Tabellen- und Abbildungsverzeichnis</li>
+<li>Indexerstellung</li>
+</ul>
+
+<p>Inhalte werden einfach in die Dateien kap1.tex, einleitung.tex
+etc. eingefügt und über \input in die main.tex eingebunden.</p>
+
+<p>Übersetzung erfolgt wie in den .sh-Skripten gezeigt nach</p>
+
+<p>lualatex main
+  biber main
+  xindy -L german-din -C utf8 -I xindy -M main -t main.glg -o main.gls main.glo
+  makeindex main
+  lualatex main
+  lualatex main</p>
+
+<p>Viel Spaß damit</p>
+
+</body>
+</html>

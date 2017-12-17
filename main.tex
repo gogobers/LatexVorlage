@@ -1,0 +1,106 @@
+\NeedsTeXFormat{LaTeX2e}
+\documentclass[12pt,a4paper,twoside]{report}
+% zur Kontrolle des Umbruchs Klassenoption draft verwenden
+%
+%
+%%% Ablauf in der Konsole:
+%
+% pdflatex main
+% pdflatex main
+% biber main
+% xindy -L german-din -C utf8 -I xindy -M main -t main.glg -o main.gls main.glo
+% texindy main.idx
+% pdflatex main
+% pdflatex main
+
+\usepackage[ngerman]{babel}
+\usepackage[utf8]{inputenc}
+%\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{subfig}
+\usepackage{float}
+\usepackage{latexsym}
+\usepackage{amsmath,amssymb}
+%\usepackage{ifpdf}
+%\usepackage{array}
+\usepackage{listings}  % Listings, Codebeschreibungen
+\usepackage{blindtext}
+
+\usepackage{dcolumn} % an der Dezimale ausgerichtete Spalten in Tabellen
+\newcolumntype{.}{D{.}{.}{-1}}
+\newcolumntype{d}[1]{D{.}{.}{#1}}
+\newcolumntype{,}{D{,}{\mathord\mathcomma}{-1}} % Siehe Beschreibung
+
+% Platzierung von auch großen Grafiken
+\setcounter{topnumber}{50}
+\setcounter{bottomnumber}{50}
+\setcounter{totalnumber}{100}
+\renewcommand{\topfraction}{.99}
+\renewcommand{\bottomfraction}{.99}
+\renewcommand{\textfraction}{.00}
+\renewcommand{\floatpagefraction}{.99}
+
+\usepackage{hyperref}
+\usepackage[xindy]{glossaries}
+\GlsSetXdyCodePage{duden-utf8}
+\loadglsentries{main.glossary}
+\makeglossaries
+\glstoctrue
+% Auszuführender Befehl: (nicht makeglossaries verwenden!)
+% xindy -L german-din -C utf8 -I xindy -M main -t main.glg -o main.gls main.glo
+
+%% Bibtex-optionen definieren, unterscheiden sich ggf. in Sortieroptionen
+% no sorting, in order of appearance
+\usepackage[style=numeric,backend=biber,sorting=none,sortlocale=de]{biblatex}
+\addbibresource{main.bib}
+
+% Definition der Seite
+\parindent0em
+\evensidemargin0cm
+\oddsidemargin0cm
+\textheight22cm
+\textwidth16cm
+
+\usepackage[xindy]{imakeidx}
+%\usepackage{makeidx} % Paket zur Stichwortverzeichniserstellung
+\makeindex % Alle Worte/Zeichen/Texte die mit \index{...} markiert werden
+
+\begin{document}
+% Keine Seitenzahlen im Vorspann
+\pagestyle{empty}
+
+% Titelblatt der Arbeit
+\include{titelblatt}
+
+\include{erklaerung}
+
+% Inhaltsverzeichnis
+\tableofcontents
+
+\include{einleitung}
+\include{kap1}
+
+% Hier mit Include weitere Kapitel bzw. .tex-files einbinden
+% ...
+
+% Anahng mit verschiedenen Listen
+\appendix
+\addcontentsline{toc}{chapter}{Literaturverzeichnis}
+\printbibliography
+\printglossaries
+\clearpage
+\addcontentsline{toc}{chapter}{Index}
+\printindex
+% ggf. hier Tabelle mit Symbolen 
+% (kann auch auf das Inhaltsverzeichnis folgen)
+\addcontentsline{toc}{chapter}{Abbildungsverzeichnis}
+\listoffigures
+\addcontentsline{toc}{chapter}{Tabellenverzeichnis}
+\listoftables 
+  
+\end{document}
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: t
+%%% End: 

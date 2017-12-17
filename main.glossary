@@ -1,0 +1,15 @@
+\newglossaryentry{g:kpi}{ name={KPI}, description={Key Performance
+Indicator (Schlüsselindikator), eine Meßgröße, meist Verhältniszahl,
+um die Effektivität oder Zielerreichung eines Prozesses zu messen.}}
+
+\newglossaryentry{g:sw}{ name={SW}, description={Software, auf
+Computern ablauffähige Programme oder -Teile}}
+
+\newacronym{DoS}{DoS}{Denial of Service}
+\newacronym{TDD}{TDD}{Time Division Duplex}
+\newglossaryentry{ALOHA}{name={ALOHA},
+description={beschreibt ein Zugriffsverfahren der unteren Schichten
+für Computernetze. Der Begriff geht auf das in Hawaii entwickelte
+ALOHA-Net in den 70er-Jahren zurück, später bildete ALOHA das
+Zugriffsverfahren des Ethernets.}}
+
